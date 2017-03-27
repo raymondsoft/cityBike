@@ -7,14 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00F474DFFD39F7F6E51CC9DF /* Pods_cityBike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAE2CA816474046785873D4 /* Pods_cityBike.framework */; };
 		C8262C101E890C25000F2D23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8262C0F1E890C25000F2D23 /* AppDelegate.swift */; };
 		C8262C121E890C25000F2D23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8262C111E890C25000F2D23 /* ViewController.swift */; };
 		C8262C151E890C25000F2D23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8262C131E890C25000F2D23 /* Main.storyboard */; };
 		C8262C171E890C25000F2D23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8262C161E890C25000F2D23 /* Assets.xcassets */; };
 		C8262C1A1E890C25000F2D23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8262C181E890C25000F2D23 /* LaunchScreen.storyboard */; };
+		C8262C261E890D2B000F2D23 /* Params.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8262C251E890D2B000F2D23 /* Params.swift */; };
+		C85AEC3E1E891152001886D3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85AEC3D1E891152001886D3 /* NetworkManager.swift */; };
+		C8BFB29A1E8920CF003BCB39 /* JCDecauxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFB2991E8920CF003BCB39 /* JCDecauxHelper.swift */; };
+		C8BFB29C1E89227D003BCB39 /* Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFB29B1E89227D003BCB39 /* Contract.swift */; };
+		C8BFB29E1E892C2F003BCB39 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFB29D1E892C2F003BCB39 /* Station.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D5C8C7F151566A9A2505DBC /* Pods-cityBike.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cityBike.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cityBike/Pods-cityBike.debug.xcconfig"; sourceTree = "<group>"; };
 		C8262C0C1E890C25000F2D23 /* cityBike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cityBike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8262C0F1E890C25000F2D23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8262C111E890C25000F2D23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +29,13 @@
 		C8262C161E890C25000F2D23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8262C191E890C25000F2D23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C8262C1B1E890C25000F2D23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8262C251E890D2B000F2D23 /* Params.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Params.swift; sourceTree = "<group>"; };
+		C85AEC3D1E891152001886D3 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C8BFB2991E8920CF003BCB39 /* JCDecauxHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCDecauxHelper.swift; sourceTree = "<group>"; };
+		C8BFB29B1E89227D003BCB39 /* Contract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contract.swift; sourceTree = "<group>"; };
+		C8BFB29D1E892C2F003BCB39 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		E6A9ADC3BA1BF7B87F2B84FD /* Pods-cityBike.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cityBike.release.xcconfig"; path = "Pods/Target Support Files/Pods-cityBike/Pods-cityBike.release.xcconfig"; sourceTree = "<group>"; };
+		FCAE2CA816474046785873D4 /* Pods_cityBike.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cityBike.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +43,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00F474DFFD39F7F6E51CC9DF /* Pods_cityBike.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A1B9E11DC350515763D722AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FCAE2CA816474046785873D4 /* Pods_cityBike.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C8262C031E890C24000F2D23 = {
 			isa = PBXGroup;
 			children = (
 				C8262C0E1E890C25000F2D23 /* cityBike */,
 				C8262C0D1E890C25000F2D23 /* Products */,
+				F212733D72256BC8C3AD1A13 /* Pods */,
+				A1B9E11DC350515763D722AB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +103,8 @@
 		C8262C221E890C6B000F2D23 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C8BFB29B1E89227D003BCB39 /* Contract.swift */,
+				C8BFB29D1E892C2F003BCB39 /* Station.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -85,6 +112,9 @@
 		C8262C231E890C6B000F2D23 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				C8262C251E890D2B000F2D23 /* Params.swift */,
+				C85AEC3D1E891152001886D3 /* NetworkManager.swift */,
+				C8BFB2991E8920CF003BCB39 /* JCDecauxHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -96,6 +126,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		F212733D72256BC8C3AD1A13 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5D5C8C7F151566A9A2505DBC /* Pods-cityBike.debug.xcconfig */,
+				E6A9ADC3BA1BF7B87F2B84FD /* Pods-cityBike.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +142,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C8262C1E1E890C25000F2D23 /* Build configuration list for PBXNativeTarget "cityBike" */;
 			buildPhases = (
+				94E8AFF6344A45A6AFC2EA63 /* [CP] Check Pods Manifest.lock */,
 				C8262C081E890C25000F2D23 /* Sources */,
 				C8262C091E890C25000F2D23 /* Frameworks */,
 				C8262C0A1E890C25000F2D23 /* Resources */,
+				39AE1DDE300D211E22EF5469 /* [CP] Embed Pods Frameworks */,
+				1CB1D5A8820813B93FF8A85E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -163,13 +205,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1CB1D5A8820813B93FF8A85E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-cityBike/Pods-cityBike-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		39AE1DDE300D211E22EF5469 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-cityBike/Pods-cityBike-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94E8AFF6344A45A6AFC2EA63 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C8262C081E890C25000F2D23 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C85AEC3E1E891152001886D3 /* NetworkManager.swift in Sources */,
+				C8262C261E890D2B000F2D23 /* Params.swift in Sources */,
 				C8262C121E890C25000F2D23 /* ViewController.swift in Sources */,
+				C8BFB29C1E89227D003BCB39 /* Contract.swift in Sources */,
 				C8262C101E890C25000F2D23 /* AppDelegate.swift in Sources */,
+				C8BFB29A1E8920CF003BCB39 /* JCDecauxHelper.swift in Sources */,
+				C8BFB29E1E892C2F003BCB39 /* Station.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +385,7 @@
 		};
 		C8262C1F1E890C25000F2D23 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D5C8C7F151566A9A2505DBC /* Pods-cityBike.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = cityBike/Info.plist;
@@ -302,6 +398,7 @@
 		};
 		C8262C201E890C25000F2D23 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6A9ADC3BA1BF7B87F2B84FD /* Pods-cityBike.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = cityBike/Info.plist;
@@ -331,6 +428,7 @@
 				C8262C201E890C25000F2D23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
