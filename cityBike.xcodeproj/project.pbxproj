@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		00F474DFFD39F7F6E51CC9DF /* Pods_cityBike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAE2CA816474046785873D4 /* Pods_cityBike.framework */; };
+		C80D2AA81E89483A00B1DAF4 /* CitiesSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80D2AA71E89483A00B1DAF4 /* CitiesSelectionViewController.swift */; };
+		C80D2AAA1E8951E400B1DAF4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80D2AA91E8951E400B1DAF4 /* MapKit.framework */; };
+		C80D2AAC1E89598200B1DAF4 /* StationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80D2AAB1E89598200B1DAF4 /* StationAnnotation.swift */; };
+		C80D2AAE1E8962D000B1DAF4 /* utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80D2AAD1E8962D000B1DAF4 /* utilities.swift */; };
+		C80D2AB01E8A642B00B1DAF4 /* stationPinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C80D2AAF1E8A642B00B1DAF4 /* stationPinView.xib */; };
+		C80D2AB21E8A72DF00B1DAF4 /* DetailStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80D2AB11E8A72DF00B1DAF4 /* DetailStationView.swift */; };
+		C80D2AB41E8AA7FB00B1DAF4 /* StationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80D2AB31E8AA7FB00B1DAF4 /* StationDetailViewController.swift */; };
+		C80D2AB61E8AB4FB00B1DAF4 /* UIImage+colorize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80D2AB51E8AB4FB00B1DAF4 /* UIImage+colorize.swift */; };
+		C81F99E71E8BC558006DF46C /* StationAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F99E61E8BC558006DF46C /* StationAnnotationView.swift */; };
+		C81F99E91E8BCA7F006DF46C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F99E81E8BCA7F006DF46C /* Model.swift */; };
+		C81F99EB1E8BCBF1006DF46C /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F99EA1E8BCBF1006DF46C /* PersistanceManager.swift */; };
 		C8262C101E890C25000F2D23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8262C0F1E890C25000F2D23 /* AppDelegate.swift */; };
 		C8262C121E890C25000F2D23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8262C111E890C25000F2D23 /* ViewController.swift */; };
 		C8262C151E890C25000F2D23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8262C131E890C25000F2D23 /* Main.storyboard */; };
@@ -18,10 +29,23 @@
 		C8BFB29A1E8920CF003BCB39 /* JCDecauxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFB2991E8920CF003BCB39 /* JCDecauxHelper.swift */; };
 		C8BFB29C1E89227D003BCB39 /* Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFB29B1E89227D003BCB39 /* Contract.swift */; };
 		C8BFB29E1E892C2F003BCB39 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFB29D1E892C2F003BCB39 /* Station.swift */; };
+		C8BFB2A21E894213003BCB39 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFB2A11E894213003BCB39 /* CityViewController.swift */; };
+		C8BFB2A41E894635003BCB39 /* MapCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFB2A31E894635003BCB39 /* MapCityViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5D5C8C7F151566A9A2505DBC /* Pods-cityBike.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cityBike.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cityBike/Pods-cityBike.debug.xcconfig"; sourceTree = "<group>"; };
+		C80D2AA71E89483A00B1DAF4 /* CitiesSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitiesSelectionViewController.swift; sourceTree = "<group>"; };
+		C80D2AA91E8951E400B1DAF4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C80D2AAB1E89598200B1DAF4 /* StationAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationAnnotation.swift; sourceTree = "<group>"; };
+		C80D2AAD1E8962D000B1DAF4 /* utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = utilities.swift; sourceTree = "<group>"; };
+		C80D2AAF1E8A642B00B1DAF4 /* stationPinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = stationPinView.xib; sourceTree = "<group>"; };
+		C80D2AB11E8A72DF00B1DAF4 /* DetailStationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailStationView.swift; sourceTree = "<group>"; };
+		C80D2AB31E8AA7FB00B1DAF4 /* StationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationDetailViewController.swift; sourceTree = "<group>"; };
+		C80D2AB51E8AB4FB00B1DAF4 /* UIImage+colorize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+colorize.swift"; sourceTree = "<group>"; };
+		C81F99E61E8BC558006DF46C /* StationAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationAnnotationView.swift; sourceTree = "<group>"; };
+		C81F99E81E8BCA7F006DF46C /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		C81F99EA1E8BCBF1006DF46C /* PersistanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
 		C8262C0C1E890C25000F2D23 /* cityBike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cityBike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8262C0F1E890C25000F2D23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8262C111E890C25000F2D23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
@@ -34,6 +58,8 @@
 		C8BFB2991E8920CF003BCB39 /* JCDecauxHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCDecauxHelper.swift; sourceTree = "<group>"; };
 		C8BFB29B1E89227D003BCB39 /* Contract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contract.swift; sourceTree = "<group>"; };
 		C8BFB29D1E892C2F003BCB39 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		C8BFB2A11E894213003BCB39 /* CityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
+		C8BFB2A31E894635003BCB39 /* MapCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCityViewController.swift; sourceTree = "<group>"; };
 		E6A9ADC3BA1BF7B87F2B84FD /* Pods-cityBike.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cityBike.release.xcconfig"; path = "Pods/Target Support Files/Pods-cityBike/Pods-cityBike.release.xcconfig"; sourceTree = "<group>"; };
 		FCAE2CA816474046785873D4 /* Pods_cityBike.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cityBike.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -43,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C80D2AAA1E8951E400B1DAF4 /* MapKit.framework in Frameworks */,
 				00F474DFFD39F7F6E51CC9DF /* Pods_cityBike.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,6 +80,7 @@
 		A1B9E11DC350515763D722AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C80D2AA91E8951E400B1DAF4 /* MapKit.framework */,
 				FCAE2CA816474046785873D4 /* Pods_cityBike.framework */,
 			);
 			name = Frameworks;
@@ -96,6 +124,11 @@
 			isa = PBXGroup;
 			children = (
 				C8262C111E890C25000F2D23 /* ViewController.swift */,
+				C8BFB2A11E894213003BCB39 /* CityViewController.swift */,
+				C8BFB2A31E894635003BCB39 /* MapCityViewController.swift */,
+				C80D2AA71E89483A00B1DAF4 /* CitiesSelectionViewController.swift */,
+				C80D2AB11E8A72DF00B1DAF4 /* DetailStationView.swift */,
+				C80D2AB31E8AA7FB00B1DAF4 /* StationDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -105,6 +138,9 @@
 			children = (
 				C8BFB29B1E89227D003BCB39 /* Contract.swift */,
 				C8BFB29D1E892C2F003BCB39 /* Station.swift */,
+				C80D2AAB1E89598200B1DAF4 /* StationAnnotation.swift */,
+				C81F99E61E8BC558006DF46C /* StationAnnotationView.swift */,
+				C81F99E81E8BCA7F006DF46C /* Model.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -115,6 +151,9 @@
 				C8262C251E890D2B000F2D23 /* Params.swift */,
 				C85AEC3D1E891152001886D3 /* NetworkManager.swift */,
 				C8BFB2991E8920CF003BCB39 /* JCDecauxHelper.swift */,
+				C80D2AAD1E8962D000B1DAF4 /* utilities.swift */,
+				C80D2AB51E8AB4FB00B1DAF4 /* UIImage+colorize.swift */,
+				C81F99EA1E8BCBF1006DF46C /* PersistanceManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -122,6 +161,7 @@
 		C8262C241E890C6B000F2D23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C80D2AAF1E8A642B00B1DAF4 /* stationPinView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -171,6 +211,11 @@
 					C8262C0B1E890C25000F2D23 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -200,6 +245,7 @@
 				C8262C1A1E890C25000F2D23 /* LaunchScreen.storyboard in Resources */,
 				C8262C171E890C25000F2D23 /* Assets.xcassets in Resources */,
 				C8262C151E890C25000F2D23 /* Main.storyboard in Resources */,
+				C80D2AB01E8A642B00B1DAF4 /* stationPinView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,12 +304,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C80D2AA81E89483A00B1DAF4 /* CitiesSelectionViewController.swift in Sources */,
+				C80D2AAC1E89598200B1DAF4 /* StationAnnotation.swift in Sources */,
+				C8BFB2A41E894635003BCB39 /* MapCityViewController.swift in Sources */,
+				C81F99EB1E8BCBF1006DF46C /* PersistanceManager.swift in Sources */,
+				C80D2AB21E8A72DF00B1DAF4 /* DetailStationView.swift in Sources */,
 				C85AEC3E1E891152001886D3 /* NetworkManager.swift in Sources */,
 				C8262C261E890D2B000F2D23 /* Params.swift in Sources */,
 				C8262C121E890C25000F2D23 /* ViewController.swift in Sources */,
+				C80D2AAE1E8962D000B1DAF4 /* utilities.swift in Sources */,
 				C8BFB29C1E89227D003BCB39 /* Contract.swift in Sources */,
+				C8BFB2A21E894213003BCB39 /* CityViewController.swift in Sources */,
+				C81F99E91E8BCA7F006DF46C /* Model.swift in Sources */,
+				C80D2AB41E8AA7FB00B1DAF4 /* StationDetailViewController.swift in Sources */,
 				C8262C101E890C25000F2D23 /* AppDelegate.swift in Sources */,
 				C8BFB29A1E8920CF003BCB39 /* JCDecauxHelper.swift in Sources */,
+				C80D2AB61E8AB4FB00B1DAF4 /* UIImage+colorize.swift in Sources */,
+				C81F99E71E8BC558006DF46C /* StationAnnotationView.swift in Sources */,
 				C8BFB29E1E892C2F003BCB39 /* Station.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -34,7 +34,7 @@ class NetworkManager {
             let concatenedParametersUrl = parametersUrl.joined(separator: "&")
             url = "\(url)?\(concatenedParametersUrl)"
         }
-        print(url)
+//        print(url)
         Alamofire.request(url).validate().responseJSON() { response in
             switch response.result {
             case .success:

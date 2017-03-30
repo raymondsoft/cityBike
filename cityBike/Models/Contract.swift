@@ -26,20 +26,20 @@ import SwiftyJSON
 
 struct Contract {
     
-    let country_code : String
+    let countryCode : String
     var cities : [String] = []
     let name : String
-    let commercial_name : String
+    let commercialName : String
     
     init(contract json: JSON) {
-        country_code = json["country_code"].stringValue
+        countryCode = json["country_code"].stringValue
         for city in json["cities"].arrayObject! {
             if let cityName = city as? String {
                 cities.append(cityName)
             }
         }
         name = json["name"].stringValue
-        commercial_name = json["commercial_name"].stringValue
+        commercialName = json["commercial_name"].stringValue
         
     }
     

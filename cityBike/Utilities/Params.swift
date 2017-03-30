@@ -18,6 +18,12 @@ struct params {
     
     static let stations = "stations"
     
+    static let favoriteId = "favId"
+    
+    static let homeId = "homeId"
+    
+    static let workId = "workId"
+    
     
     private static func getInfoJCDecaux(endPoint: String, extensionEndPoint: String?,  parameters: [String: String]) -> JSON? {
         var resultJson : JSON?
