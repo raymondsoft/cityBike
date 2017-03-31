@@ -16,6 +16,10 @@
 		C80D2AB21E8A72DF00B1DAF4 /* DetailStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80D2AB11E8A72DF00B1DAF4 /* DetailStationView.swift */; };
 		C80D2AB41E8AA7FB00B1DAF4 /* StationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80D2AB31E8AA7FB00B1DAF4 /* StationDetailViewController.swift */; };
 		C80D2AB61E8AB4FB00B1DAF4 /* UIImage+colorize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80D2AB51E8AB4FB00B1DAF4 /* UIImage+colorize.swift */; };
+		C8123F241E8D14A2002840BA /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8123F231E8D14A2002840BA /* PageViewController.swift */; };
+		C8123F261E8D39FF002840BA /* FavoriteStationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8123F251E8D39FF002840BA /* FavoriteStationsViewController.swift */; };
+		C81BB33B1E8D55FA004EDDEA /* StationListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81BB33A1E8D55FA004EDDEA /* StationListProvider.swift */; };
+		C81BB33D1E8D5DF2004EDDEA /* StationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81BB33C1E8D5DF2004EDDEA /* StationTableViewCell.swift */; };
 		C81F99E71E8BC558006DF46C /* StationAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F99E61E8BC558006DF46C /* StationAnnotationView.swift */; };
 		C81F99E91E8BCA7F006DF46C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F99E81E8BCA7F006DF46C /* Model.swift */; };
 		C81F99EB1E8BCBF1006DF46C /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F99EA1E8BCBF1006DF46C /* PersistanceManager.swift */; };
@@ -43,6 +47,10 @@
 		C80D2AB11E8A72DF00B1DAF4 /* DetailStationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailStationView.swift; sourceTree = "<group>"; };
 		C80D2AB31E8AA7FB00B1DAF4 /* StationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationDetailViewController.swift; sourceTree = "<group>"; };
 		C80D2AB51E8AB4FB00B1DAF4 /* UIImage+colorize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+colorize.swift"; sourceTree = "<group>"; };
+		C8123F231E8D14A2002840BA /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		C8123F251E8D39FF002840BA /* FavoriteStationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteStationsViewController.swift; sourceTree = "<group>"; };
+		C81BB33A1E8D55FA004EDDEA /* StationListProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationListProvider.swift; sourceTree = "<group>"; };
+		C81BB33C1E8D5DF2004EDDEA /* StationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationTableViewCell.swift; sourceTree = "<group>"; };
 		C81F99E61E8BC558006DF46C /* StationAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationAnnotationView.swift; sourceTree = "<group>"; };
 		C81F99E81E8BCA7F006DF46C /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		C81F99EA1E8BCBF1006DF46C /* PersistanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
@@ -86,6 +94,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C81BB3391E8D5573004EDDEA /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				C81BB33A1E8D55FA004EDDEA /* StationListProvider.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		C8262C031E890C24000F2D23 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +123,7 @@
 		C8262C0E1E890C25000F2D23 /* cityBike */ = {
 			isa = PBXGroup;
 			children = (
+				C81BB3391E8D5573004EDDEA /* Protocol */,
 				C8262C231E890C6B000F2D23 /* Utilities */,
 				C8262C211E890C6B000F2D23 /* Controllers */,
 				C8262C241E890C6B000F2D23 /* Views */,
@@ -129,6 +146,8 @@
 				C80D2AA71E89483A00B1DAF4 /* CitiesSelectionViewController.swift */,
 				C80D2AB11E8A72DF00B1DAF4 /* DetailStationView.swift */,
 				C80D2AB31E8AA7FB00B1DAF4 /* StationDetailViewController.swift */,
+				C8123F231E8D14A2002840BA /* PageViewController.swift */,
+				C8123F251E8D39FF002840BA /* FavoriteStationsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -162,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				C80D2AAF1E8A642B00B1DAF4 /* stationPinView.xib */,
+				C81BB33C1E8D5DF2004EDDEA /* StationTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,10 +338,14 @@
 				C81F99E91E8BCA7F006DF46C /* Model.swift in Sources */,
 				C80D2AB41E8AA7FB00B1DAF4 /* StationDetailViewController.swift in Sources */,
 				C8262C101E890C25000F2D23 /* AppDelegate.swift in Sources */,
+				C81BB33D1E8D5DF2004EDDEA /* StationTableViewCell.swift in Sources */,
+				C8123F241E8D14A2002840BA /* PageViewController.swift in Sources */,
 				C8BFB29A1E8920CF003BCB39 /* JCDecauxHelper.swift in Sources */,
 				C80D2AB61E8AB4FB00B1DAF4 /* UIImage+colorize.swift in Sources */,
 				C81F99E71E8BC558006DF46C /* StationAnnotationView.swift in Sources */,
+				C81BB33B1E8D55FA004EDDEA /* StationListProvider.swift in Sources */,
 				C8BFB29E1E892C2F003BCB39 /* Station.swift in Sources */,
+				C8123F261E8D39FF002840BA /* FavoriteStationsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

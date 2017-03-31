@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapCityViewController: UIViewController, MKMapViewDelegate, StationMapViewDelegate {
+class MapCityViewController: UIViewController, MKMapViewDelegate, StationMapViewDelegate, StationListProvider {
     
     var stations : [Station]?
     
@@ -21,11 +21,7 @@ class MapCityViewController: UIViewController, MKMapViewDelegate, StationMapView
     
     let locationManager = CLLocationManager()
     
-    var favouritesStationsId = [Int]() {
-        didSet {
-            print("StationsID : \(favouritesStationsId)")
-        }
-    }
+    var favouritesStationsId = [Int]()
     var workStationsId = [Int]()
     var homeStationsId = [Int]()
     
@@ -35,6 +31,8 @@ class MapCityViewController: UIViewController, MKMapViewDelegate, StationMapView
     
     @IBOutlet weak var standsSegmentedControl: UISegmentedControl!
     
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +55,6 @@ class MapCityViewController: UIViewController, MKMapViewDelegate, StationMapView
     }
     
     func saveInfo() {
-        print("SAVE INFOS")
 //        PersistanceManager.deleteChosenIds()
 //        PersistanceManager.saveFavoritesIds(stationIds: self.favouritesStationsId)
         
@@ -66,11 +63,8 @@ class MapCityViewController: UIViewController, MKMapViewDelegate, StationMapView
         PersistanceManager.deleteChosenIds(for: StationType.work.rawValue)
         
         PersistanceManager.saveStationsId(for: StationType.favorite.rawValue, with: self.favouritesStationsId)
-        print("SAVE FAVO : \(self.favouritesStationsId)")
         PersistanceManager.saveStationsId(for: StationType.home.rawValue, with: self.homeStationsId)
-        print("SAVE HOME : \(self.homeStationsId)")
         PersistanceManager.saveStationsId(for: StationType.work.rawValue, with: self.workStationsId)
-        print("SAVE WORK : \(self.workStationsId)")
         
     }
     
@@ -91,23 +85,14 @@ class MapCityViewController: UIViewController, MKMapViewDelegate, StationMapView
     
     override func viewWillAppear(_ animated: Bool) {
         self.debugLabel.text = "nb stations : \(self.stations!.count) et ville : \(self.city!)"
-        /*
-        if let favoritesId = PersistanceManager.getFavoriteIds() {
-            print("GET")
-            self.favouritesStationsId = favoritesId
-        }
- */
-        print("ViewWillAppear")
+
         if let favoriteId = PersistanceManager.getFavoriteIds(for: StationType.favorite.rawValue){
-            print("GET FAVORITE : \(favoriteId)")
             self.favouritesStationsId = favoriteId
         }
         if let homeId = PersistanceManager.getFavoriteIds(for: StationType.home.rawValue){
-            print("GET HOME \(homeId)")
             self.homeStationsId = homeId
         }
         if let workId = PersistanceManager.getFavoriteIds(for: StationType.work.rawValue){
-            print("GET WORK \(workId)")
             self.workStationsId = workId
         }
         
@@ -116,12 +101,13 @@ class MapCityViewController: UIViewController, MKMapViewDelegate, StationMapView
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        
+        self.saveInfo()
     }
     
     func addAllStationAnnotations() {
         self.mapView.removeAnnotations(self.mapView.annotations)
         
-        print(self.favouritesStationsId)
         if let stations = self.stations {
             for station in stations {
                 addStationAnnotation(from: station)
@@ -131,15 +117,7 @@ class MapCityViewController: UIViewController, MKMapViewDelegate, StationMapView
     
     func addStationAnnotation(from station: Station){
         let stationAnnotation = StationAnnotation()
-        
-        /*
-         var  type = StationType.standard
-         print(station.number)
-         if(self.favouritesStationsId.contains(station.number)) {
-         type = StationType.favorite
-         print("FAVORITE")
-         }
-         */
+
         let type = userStationAnnotationType(from: station)
         stationAnnotation.buildAnnotationFromStation(station, type: type)
         
@@ -181,18 +159,7 @@ class MapCityViewController: UIViewController, MKMapViewDelegate, StationMapView
             if let stationAnnotation = annotation as? StationAnnotation {
                 let pinAnnotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "cityBikeAnnotationView") as? StationAnnotationView ?? StationAnnotationView(annotation: annotation, reuseIdentifier: "cityBikeAnnotationView")
                 pinAnnotationView.stationDelegate = self
-                /*
-                 var pinAnnotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "cityBikeAnnotationView")
-                 if(pinAnnotationView == nil) {
-                 pinAnnotationView = StationAnnotationView(annotation: stationAnnotation, reuseIdentifier: "cityBikeAnnotationView")
-                 //        (pinAnnotationView as! StationAnnotationView).station = stationAnnotation.station!
-                 } else {
-                 print("TODO")
-                 pinAnnotationView?.annotation = stationAnnotation
-                 */
-                /*  ANCIEN CODE CORRECT !!!
-                 let pinAnnotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "cityBikeAnnotationView") /*as? MKPinAnnotationView*/ ?? MKAnnotationView(annotation: annotation, reuseIdentifier: "cityBikeAnnotationView") //MKPinAnnotationView(annotation: stationAnnotation, reuseIdentifier: "cityBikeAnnotationView")
-                 FIN ANCIEN CODE CORRECT */
+
                 pinAnnotationView.annotation = stationAnnotation
                 for subview in pinAnnotationView.subviews {
                     subview.removeFromSuperview()
@@ -261,7 +228,6 @@ class MapCityViewController: UIViewController, MKMapViewDelegate, StationMapView
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
-        print("TOTO")
         guard let stationAnnotation = view.annotation as? StationAnnotation else { return }
         if let station = stationAnnotation.station {
             if (stationAnnotation.station?.type ==  StationType.favorite) {
@@ -299,7 +265,6 @@ class MapCityViewController: UIViewController, MKMapViewDelegate, StationMapView
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard let stationAnnotation = view.annotation as? StationAnnotation else { return }
         
-        print("SELECT \(view.frame.minX), \(view.frame.minY)")
         if let station = stationAnnotation.station {
             let latitude = station.latitude
             let longitude = station.longitude
@@ -320,7 +285,6 @@ class MapCityViewController: UIViewController, MKMapViewDelegate, StationMapView
     
     
     @IBAction func standBikeSegmentedChanged(_ sender: UISegmentedControl) {
-        //print("CHANGE")
         self.mapView.removeAnnotations(self.mapView.annotations)
         addAllStationAnnotations()
     }
@@ -384,6 +348,13 @@ class MapCityViewController: UIViewController, MKMapViewDelegate, StationMapView
             
         }
         addAllStationAnnotations()
+    }
+    
+    
+    // -MARK: StationListProvider Implementation
+    
+    func getStationList() -> [Station]? {
+        return self.stations
     }
 }
 

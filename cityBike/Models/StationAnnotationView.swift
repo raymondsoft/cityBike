@@ -60,7 +60,6 @@ class StationAnnotationView: MKAnnotationView {
                 }
             }
         } else {
-            print("DESELECT \(self.stationView?.station.name)")
             if stationView != nil {
                 if animated {
                     UIView.animate(withDuration: 0.3, animations: {
@@ -102,15 +101,12 @@ class StationAnnotationView: MKAnnotationView {
     
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         if let parentHitView = super.hitTest(point, with: event) {
-//            print("PARENT HIT")
             return parentHitView
         } else {
             if stationView != nil {
-//                print("StationView HIT")
                 return stationView!.hitTest(convert(point, to: stationView!), with: event)
             }
             else {
-//                print("DEFAULT HIT")
                 return nil
             }
         }

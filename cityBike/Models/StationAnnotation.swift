@@ -79,11 +79,7 @@ class StationAnnotation : NSObject, MKAnnotation {
             green = 1
             blue = 0
         }
-        /*
-        print("------------------------------------")
-        print("vélos dispo : \(self.station!.availableBikes) empl. Tot. : \(self.station!.bikeStands)  % : \(percentage)")
-        print("r: \(red) v: \(green) b: \(blue)")
- */
+
         self.pinAvailableBikesColor = UIColor(colorLiteralRed: red, green: green, blue: blue, alpha: alpha)
     }
     

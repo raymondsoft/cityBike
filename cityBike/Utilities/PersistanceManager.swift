@@ -19,14 +19,11 @@ class PersistanceManager {
     
     static func getFavoriteIds()->[Int]? {
         let key = params.favoriteId
-        print("LOAD")
         return UserDefaults.standard.object(forKey: key) as? [Int]
     }
     
     static func getFavoriteIds(for key: String)->[Int]? {
-        
-        print("LOAD NEW")
-        return UserDefaults.standard.object(forKey: key) as? [Int]
+         return UserDefaults.standard.object(forKey: key) as? [Int]
     }
     
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CityViewController: UIViewController {
+class CityViewController: UIViewController, StationListProvider {
     
     var allStations : [Station] = [] {
         didSet {
@@ -77,6 +77,12 @@ class CityViewController: UIViewController {
             }
             
         }
+    }
+    
+    // -MARK: StationListProvider Implementation
+    
+    func getStationList() -> [Station]? {
+        return self.allStations
     }
     
 }

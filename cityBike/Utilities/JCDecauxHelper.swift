@@ -38,13 +38,9 @@ struct JCDecauxHelper {
                 return
             }
             if let json = json {
-                //print(json)
-                //resultJson = json
                 completion(json)
             }
         }
-     //   print(resultJson)
-     //   return resultJson
     }
     
     static func getContracts(_ completion : @escaping (JSON) -> Void) {

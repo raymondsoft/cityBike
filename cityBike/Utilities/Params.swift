@@ -38,7 +38,6 @@ struct params {
                 return
             }
             if let json = json {
-                print(json)
                 resultJson = json
             }
         }

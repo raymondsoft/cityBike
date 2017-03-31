@@ -72,13 +72,11 @@ class DetailStationView: UIView {
         self.totalBikeStands.text = String(station.bikeStands)
         self.freeBikeStands.text = String(station.availableBikeStands)
         self.occupiedBikeStands.text = String(station.availableBikes)
-        print("I WILL COLORIZE")
         colorizeButtons()
         
     }
     
     func colorizeButtons()  {
-        print("COLORIZE")
         
         // We set all button gray.
         self.homeButton.imageView?.image = self.homeButton.imageView?.image?.maskWithColor(color: BUTTON_NOT_SELECTED_COLOR)
@@ -89,16 +87,12 @@ class DetailStationView: UIView {
         
         switch self.station.type {
         case .standard:
-            print("STD")
             break
         case .favorite:
-            print("FAV")
             self.favoriteButton.imageView!.image = self.favoriteButton.imageView!.image!.maskWithColor(color: BUTTON_SELECTED_COLOR)
         case .home:
-            print("HOME")
             self.homeButton.imageView?.image = self.homeButton.imageView?.image?.maskWithColor(color: BUTTON_SELECTED_COLOR)
         case .work:
-            print("WORK")
             self.workButton.imageView?.image = self.workButton.imageView?.image?.maskWithColor(color: BUTTON_SELECTED_COLOR)
             
         }
@@ -114,7 +108,6 @@ class DetailStationView: UIView {
             self.station.type = .home
             colorizeButtons()
             self.homeButton.imageView?.image = self.homeButton.imageView?.image?.maskWithColor(color: BUTTON_SELECTED_COLOR)
-            print("FIN HOME")
         }
         self.delegate?.updateStationType(station: self.station)
     }
