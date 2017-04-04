@@ -78,6 +78,7 @@ class FavoriteStationsViewController: UIViewController , UITableViewDelegate, UI
     override func viewWillAppear(_ animated: Bool) {
         self.screenTypeLabel.text = self.screenType.description
         self.view.backgroundColor = self.screenType.color
+        self.refreshDatas()
         
     }
     
