@@ -7,7 +7,10 @@
 //
 
 import Foundation
+import CoreLocation
 
 protocol StationListProvider {
     func getStationList() -> [Station]?
+    
+    func getUserLocation() -> CLLocation?
 }

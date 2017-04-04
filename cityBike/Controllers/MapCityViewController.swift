@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapCityViewController: UIViewController, MKMapViewDelegate, StationMapViewDelegate, StationListProvider {
+class MapCityViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, StationMapViewDelegate, StationListProvider {
     
     var stations : [Station]?
     
@@ -25,6 +25,10 @@ class MapCityViewController: UIViewController, MKMapViewDelegate, StationMapView
     var workStationsId = [Int]()
     var homeStationsId = [Int]()
     
+    var centerToUserLocation: Bool = false
+    
+    //var locationDelegate : CLLocationManagerDelegate?
+    
     @IBOutlet weak var debugLabel: UILabel!
     
     @IBOutlet weak var mapView: MKMapView!
@@ -36,14 +40,7 @@ class MapCityViewController: UIViewController, MKMapViewDelegate, StationMapView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.requestLocationAccess()
-        let newlocation = CLLocation(latitude: (self.stations?.first?.latitude)!, longitude: (self.stations?.first?.longitude)!)
-        centerView(at: newlocation, radius: 0.04)
-        //  self.locationManager.delegate = self
-        self.mapView.delegate = self
-        
-        mapView.showsUserLocation = true
+               // mapView.showsUserLocation = true
         // Do any additional setup after loading the view.
         
         NotificationCenter.default.addObserver(self, selector: #selector(saveInfo), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
@@ -62,9 +59,9 @@ class MapCityViewController: UIViewController, MKMapViewDelegate, StationMapView
         PersistanceManager.deleteChosenIds(for: StationType.home.rawValue)
         PersistanceManager.deleteChosenIds(for: StationType.work.rawValue)
         
-        PersistanceManager.saveStationsId(for: StationType.favorite.rawValue, with: self.favouritesStationsId)
-        PersistanceManager.saveStationsId(for: StationType.home.rawValue, with: self.homeStationsId)
-        PersistanceManager.saveStationsId(for: StationType.work.rawValue, with: self.workStationsId)
+        PersistanceManager.saveStationsId(for: StationType.favorite.rawValue, with: self.favouritesStationsId, contract: self.city!)
+        PersistanceManager.saveStationsId(for: StationType.home.rawValue, with: self.homeStationsId, contract: self.city!)
+        PersistanceManager.saveStationsId(for: StationType.work.rawValue, with: self.workStationsId, contract: self.city!)
         
     }
     
@@ -84,15 +81,27 @@ class MapCityViewController: UIViewController, MKMapViewDelegate, StationMapView
     
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        
+        
+        
+        //self.requestLocationAccess()
+        let newlocation = CLLocation(latitude: (self.stations?.first?.latitude)!, longitude: (self.stations?.first?.longitude)!)
+        centerView(at: newlocation, radius: 0.04)
+        //  self.locationManager.delegate = self
+        self.mapView.delegate = self
+        
+
+        
         self.debugLabel.text = "nb stations : \(self.stations!.count) et ville : \(self.city!)"
 
-        if let favoriteId = PersistanceManager.getFavoriteIds(for: StationType.favorite.rawValue){
+        if let favoriteId = PersistanceManager.getFavoriteIds(for: StationType.favorite.rawValue, contract: self.city!){
             self.favouritesStationsId = favoriteId
         }
-        if let homeId = PersistanceManager.getFavoriteIds(for: StationType.home.rawValue){
+        if let homeId = PersistanceManager.getFavoriteIds(for: StationType.home.rawValue, contract: self.city!){
             self.homeStationsId = homeId
         }
-        if let workId = PersistanceManager.getFavoriteIds(for: StationType.work.rawValue){
+        if let workId = PersistanceManager.getFavoriteIds(for: StationType.work.rawValue, contract: self.city!){
             self.workStationsId = workId
         }
         
@@ -350,12 +359,47 @@ class MapCityViewController: UIViewController, MKMapViewDelegate, StationMapView
         addAllStationAnnotations()
     }
     
+    @IBAction func showPositionButton(_ sender: Any) {
+        self.centerToUserLocation = !self.centerToUserLocation
+        if(centerToUserLocation) {
+        initUserLocation()
+        self.mapView.setCenter((self.locationManager.location?.coordinate)!, animated: true)
+        }
+        else {
+            self.locationManager.stopUpdatingLocation()
+            self.mapView.showsUserLocation = false
+        }
+    }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let lastPosition = locations.last {
+            self.mapView.setCenter(lastPosition.coordinate, animated: true)
+            print("Posit°")
+        }
+    }
+    
+    func initUserLocation() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        locationManager.requestLocation()
+        locationManager.requestWhenInUseAuthorization()
+        self.mapView.showsUserLocation = true
+        locationManager.startUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("error")
+    }
     // -MARK: StationListProvider Implementation
     
     func getStationList() -> [Station]? {
         return self.stations
     }
+    
+    func getUserLocation() -> CLLocation? {
+        return nil
+    }
+    
 }
 
 

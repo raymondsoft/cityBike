@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="U9v-3B-EHp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xhQ-PU-PTC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +14,7 @@
         <!--Cities Selection View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CitiesSelectionViewController" customModule="cityBike" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContractSelectorView" id="BYZ-38-t0r" customClass="CitiesSelectionViewController" customModule="cityBike" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -36,6 +37,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="contractsPickerView" destination="vuC-LT-Mob" id="kWu-rE-snB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -43,7 +47,7 @@
         <!--City View Controller-->
         <scene sceneID="hXO-wz-ecg">
             <objects>
-                <viewController id="wlb-Y8-Ps9" customClass="CityViewController" customModule="cityBike" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CityView" id="wlb-Y8-Ps9" customClass="CityViewController" customModule="cityBike" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XiS-SC-gRX"/>
                         <viewControllerLayoutGuide type="bottom" id="1Eu-iv-43L"/>
@@ -93,15 +97,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3r8-QL-nzS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2687.1999999999998" y="67.916041979010501"/>
+            <point key="canvasLocation" x="3626.4000000000001" y="67.916041979010501"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="YKG-8a-6Gb">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="U9v-3B-EHp" customClass="PageViewController" customModule="cityBike" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="U9v-3B-EHp" customClass="PageViewController" customModule="cityBike" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Q6H-gL-UXf"/>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sPu-tp-7wr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1276" y="-554"/>
+            <point key="canvasLocation" x="2215.1999999999998" y="-554.57271364317842"/>
         </scene>
         <!--Map City View Controller-->
         <scene sceneID="6bA-Kx-S5c">
@@ -136,6 +142,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNp-3k-Jq4">
+                                <rect key="frame" x="298" y="593" width="33" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="fleche"/>
+                                <connections>
+                                    <action selector="showPositionButton:" destination="Eh4-H0-FVO" eventType="touchUpInside" id="x5W-QU-WKu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -153,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zZM-UG-ae9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3423.1999999999998" y="63.418290854572717"/>
+            <point key="canvasLocation" x="4362.3999999999996" y="63.418290854572717"/>
         </scene>
         <!--Favorite Stations View Controller-->
         <scene sceneID="Ptx-0p-TVv">
@@ -174,61 +188,104 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="101" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MwT-KP-X9g">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="163" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MwT-KP-X9g">
                                 <rect key="frame" x="28" y="136" width="318" height="478"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StationCell" rowHeight="101" id="T3V-rw-hki" customClass="StationTableViewCell" customModule="cityBike" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="318" height="101"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StationCell" rowHeight="163" id="T3V-rw-hki" customClass="StationTableViewCell" customModule="cityBike" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="318" height="163"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T3V-rw-hki" id="EhW-C7-Dpb">
-                                            <rect key="frame" x="0.0" y="0.0" width="318" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="318" height="162"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="StationName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AsZ-1m-Mtb">
-                                                    <rect key="frame" x="105" y="8" width="99" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stands" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayd-K4-PWg">
-                                                    <rect key="frame" x="244" y="8" width="54" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bikesAvail." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDd-iH-XJ5">
-                                                    <rect key="frame" x="33" y="54" width="80" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="StandsAvail." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0S-Yu-Gju">
-                                                    <rect key="frame" x="210" y="54" width="93" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZn-5a-taS">
-                                                    <rect key="frame" x="128" y="28" width="63" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="hCf-Ak-Mr3">
+                                                    <rect key="frame" x="0.0" y="0.0" width="318" height="162.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StationName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="AsZ-1m-Mtb">
+                                                            <rect key="frame" x="0.0" y="0.0" width="318" height="26.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZn-5a-taS">
+                                                            <rect key="frame" x="0.0" y="34" width="318" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5pc-G3-jO4">
+                                                            <rect key="frame" x="0.0" y="62.5" width="318" height="72"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_bike" translatesAutoresizingMaskIntoConstraints="NO" id="hkT-1m-mhC">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BikesAvail." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nk0-Tl-lCz">
+                                                                    <rect key="frame" x="82" y="0.0" width="72" height="72"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_parking" translatesAutoresizingMaskIntoConstraints="NO" id="3Ip-Fc-pLd">
+                                                                    <rect key="frame" x="164" y="0.0" width="72" height="72"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StandsAvail." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0S-Yu-Gju">
+                                                                    <rect key="frame" x="246" y="0.0" width="72" height="72"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="hkT-1m-mhC" firstAttribute="height" secondItem="nk0-Tl-lCz" secondAttribute="height" id="9Wy-yg-bBk"/>
+                                                                <constraint firstItem="hkT-1m-mhC" firstAttribute="width" secondItem="nk0-Tl-lCz" secondAttribute="height" id="pRf-CB-bn1"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3c8-c3-WF7">
+                                                            <rect key="frame" x="0.0" y="142" width="318" height="20.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzl-0b-L5G">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="159" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxx m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="l2I-VG-cWz">
+                                                                    <rect key="frame" x="169" y="0.0" width="149" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="hzl-0b-L5G" firstAttribute="width" secondItem="3c8-c3-WF7" secondAttribute="width" multiplier="0.5" id="5vW-fX-xQj"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="3c8-c3-WF7" firstAttribute="width" secondItem="hCf-Ak-Mr3" secondAttribute="width" id="4vq-eW-lct"/>
+                                                        <constraint firstItem="AsZ-1m-Mtb" firstAttribute="width" secondItem="hCf-Ak-Mr3" secondAttribute="width" id="5af-ST-yYR"/>
+                                                        <constraint firstItem="5pc-G3-jO4" firstAttribute="width" secondItem="hCf-Ak-Mr3" secondAttribute="width" id="5h9-jY-Ohc"/>
+                                                        <constraint firstItem="JZn-5a-taS" firstAttribute="width" secondItem="hCf-Ak-Mr3" secondAttribute="width" id="YRv-un-DyE"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hCf-Ak-Mr3" firstAttribute="width" secondItem="EhW-C7-Dpb" secondAttribute="width" id="3Op-vb-z8L"/>
+                                                <constraint firstItem="hCf-Ak-Mr3" firstAttribute="centerX" secondItem="EhW-C7-Dpb" secondAttribute="centerX" id="4LA-Be-dz0"/>
+                                                <constraint firstItem="hCf-Ak-Mr3" firstAttribute="height" secondItem="EhW-C7-Dpb" secondAttribute="height" id="Nng-Zd-Ysj"/>
+                                                <constraint firstItem="hCf-Ak-Mr3" firstAttribute="centerY" secondItem="EhW-C7-Dpb" secondAttribute="centerY" id="cj8-rd-3y1"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="BikeImage" destination="hkT-1m-mhC" id="80g-Dw-aQb"/>
                                             <outlet property="LocalisationLabel" destination="JZn-5a-taS" id="Wor-ud-7IM"/>
                                             <outlet property="StationNameLabel" destination="AsZ-1m-Mtb" id="x3p-K8-htQ"/>
-                                            <outlet property="bikesAvailable" destination="TDd-iH-XJ5" id="Q1M-7M-kQl"/>
+                                            <outlet property="bikesAvailable" destination="nk0-Tl-lCz" id="bU8-Lu-RvT"/>
+                                            <outlet property="distanceToUserLabel" destination="l2I-VG-cWz" id="giI-37-kuz"/>
+                                            <outlet property="standImage" destination="3Ip-Fc-pLd" id="0AZ-Cg-IhN"/>
                                             <outlet property="standsAvailable" destination="T0S-Yu-Gju" id="GiR-De-3bM"/>
-                                            <outlet property="totalStandsLabel" destination="ayd-K4-PWg" id="rKb-eP-C4p"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -244,28 +301,29 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s6t-l5-cIY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4279.1999999999998" y="51.724137931034484"/>
+            <point key="canvasLocation" x="5218.3999999999996" y="51.724137931034484"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="bav-Og-5Mr">
+        <scene sceneID="L6V-ph-vmA">
             <objects>
-                <navigationController storyboardIdentifier="CityView" automaticallyAdjustsScrollViewInsets="NO" id="GKG-jt-CYN" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xhQ-PU-PTC" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qi9-Me-UFd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eqf-lb-sJI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="wlb-Y8-Ps9" kind="relationship" relationship="rootViewController" id="oCo-Ok-Wzf"/>
+                        <segue destination="U9v-3B-EHp" kind="relationship" relationship="rootViewController" id="JfP-f3-W6c"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XIo-Gp-FPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l3l-So-9w5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1748" y="67.916041979010501"/>
+            <point key="canvasLocation" x="1276" y="-554.57271364317842"/>
         </scene>
     </scenes>
     <resources>
+        <image name="fleche" width="200" height="200"/>
         <image name="homex2" width="120" height="120"/>
         <image name="icon_bike" width="60" height="60"/>
         <image name="icon_parking" width="60" height="60"/>

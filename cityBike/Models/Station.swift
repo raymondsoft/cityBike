@@ -8,7 +8,7 @@
 
 import Foundation
 import SwiftyJSON
-
+import CoreLocation
 /*
  {
  "bonus" : false,
@@ -46,7 +46,13 @@ class Station {
     let banking : Bool
     let favourite : Bool = false
     
+    var distanceToUser : Double? = nil
+    
+    var availableBikeColor : UIColor
+    var availableStandColor : UIColor
+    
     var type : StationType = .standard
+    
     
     init(_ json: JSON) {
         bonus = json["bonus"].boolValue
@@ -65,11 +71,74 @@ class Station {
         contractName = json["contract_name"].stringValue
         name = json["name"].stringValue.trimBefore("-")
         banking = json["banking"].boolValue
+        
+        self.availableBikeColor = Station.getAvailableColor(availableItem: availableBikes, totalBikesStand: bikeStands)
+        self.availableStandColor = Station.getAvailableColor(availableItem: availableBikeStands, totalBikesStand: bikeStands)
     }
     
     func setType(_ type : StationType) {
         self.type = type
     }
+    
+    func setDistanceToUser(location: CLLocation) {
+        let position = CLLocation(latitude: self.latitude, longitude: self.longitude)
+        self.distanceToUser = position.distance(from: location)
+    }
+    
+    
+    
+    private static func getAvailableColor(availableItem: Int, totalBikesStand: Int) -> UIColor {
+        let percentage = Float(availableItem) / Float(totalBikesStand)
+        var red : Float = 1
+        var green : Float = 1
+        var blue : Float = 1
+        let alpha : Float = 1
+        
+        switch percentage {
+        case 0..<0.25:
+            red = 1
+            green = percentage * 2.0
+            blue = 0
+        case 0.25...0.5:
+            red = -4 * percentage + 2
+            green = percentage * 2.0
+            blue = 0
+            
+        default:
+            red = 0
+            green = 1
+            blue = 0
+        }
+        
+        return UIColor(colorLiteralRed: red, green: green, blue: blue, alpha: alpha)
+    }
+    /*
+    private func setAvailableStandsColor() {
+        let percentage = Float(self.availableBikeStands) / Float(self.bikeStands)
+        var red : Float = 1
+        var green : Float = 1
+        var blue : Float = 1
+        let alpha : Float = 1
+        
+        switch percentage {
+        case 0..<0.25:
+            red = 1
+            green = percentage * 2.0
+            blue = 0
+        case 0.25...0.5:
+            red = -4 * percentage + 2
+            green = percentage * 2.0
+            blue = 0
+            
+        default:
+            red = 0
+            green = 1
+            blue = 0
+        }
+        self.availableStandColor = UIColor(colorLiteralRed: red, green: green, blue: blue, alpha: alpha)
+    }
+    */
+
     
 }
 

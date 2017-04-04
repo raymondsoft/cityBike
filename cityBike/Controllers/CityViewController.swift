@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class CityViewController: UIViewController, StationListProvider {
+class CityViewController: UIViewController, StationListProvider, ContractConsumer {
     
     var allStations : [Station] = [] {
         didSet {
@@ -16,7 +17,7 @@ class CityViewController: UIViewController, StationListProvider {
         }
     }
     
-    var city = "" {
+    var city : String? {
         didSet {
             self.cityLabel.text = city
         }
@@ -32,10 +33,13 @@ class CityViewController: UIViewController, StationListProvider {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.city = "Nantes"
-        loadStations()
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        loadStations()
     }
     
     override func didReceiveMemoryWarning() {
@@ -70,12 +74,15 @@ class CityViewController: UIViewController, StationListProvider {
     
     
     private func loadStations() {
-        JCDecauxHelper.getStations(forContract: self.city) {
-            json in
-            for stationJson in json.arrayValue {
-                self.allStations.append(Station(stationJson))
+        self.allStations.removeAll()
+        if self.city != nil {
+            JCDecauxHelper.getStations(forContract: self.city!) {
+                json in
+                for stationJson in json.arrayValue {
+                    self.allStations.append(Station(stationJson))
+                }
+                
             }
-            
         }
     }
     
@@ -85,4 +92,12 @@ class CityViewController: UIViewController, StationListProvider {
         return self.allStations
     }
     
+    func getUserLocation() -> CLLocation? {
+        return nil
+    }
+    
+    func setCityContract(_ city: String?) {
+        print("Contract Consumer. City recieved : \(city)")
+        self.city = city
+    }
 }

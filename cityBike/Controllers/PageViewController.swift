@@ -13,7 +13,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate , U
     var pages = [UIViewController]()
     
     // I know this is the correct index !!!
-    let startPageViewControlerIndex = 0
+    var startPageViewControlerIndex = 0
     
     //var viewControllers: [UIViewController]?
     
@@ -25,10 +25,13 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate , U
         
         // Do any additional setup after loading the view.
         
+        pages.append((storyboard?.instantiateViewController(withIdentifier: "ContractSelectorView"))!)
         
         if let startPage = storyboard?.instantiateViewController(withIdentifier: "CityView") {
             pages.append(startPage)
+            startPageViewControlerIndex = pages.index(of: startPage)!
         }
+        print("Start Page Index : \(startPageViewControlerIndex)")
         pages.append(instanciateFavoriteViewController(for: .favorite))
         pages.append(instanciateFavoriteViewController(for: .home))
         pages.append(instanciateFavoriteViewController(for: .work))
@@ -37,7 +40,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate , U
         
         
         
-        self.setViewControllers([self.pages[0]], direction: .forward, animated: true, completion: nil)
+        self.setViewControllers([self.pages[startPageViewControlerIndex]], direction: .forward, animated: true, completion: nil)
         
         
     }
@@ -68,23 +71,27 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate , U
     
     
     func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        print("Begin WillTransitionTo")
-        print("\t \(self.pages)")
+        /*
         if let viewController = pendingViewControllers.first {
-            print("\t viewController OK")
             if let favoriteViewController = viewController as? FavoriteStationsViewController {
-                print("\t favoriteViewController OK")
                 if let navigationView = self.pages[self.startPageViewControlerIndex] as? UINavigationController {
-                    print("\t navigationView OK")
                     if let stationProvider = navigationView.viewControllers.first as? StationListProvider {
-                        print("\t stationProvider OK")
                         favoriteViewController.stations = stationProvider.getStationList()
                         
                     }
                 }
             }
         }
-        print("--------------------")
+        */
+        if let contractConsumer = pendingViewControllers.first as? ContractConsumer {
+            for page in self.pages {
+                if page is ContractProvider {
+                    let contractProvider = page as! ContractProvider
+                    contractConsumer.setCityContract(contractProvider.selectedCity())
+                    break
+                }
+            }
+        }
     }
     
     

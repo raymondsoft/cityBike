@@ -8,5 +8,6 @@ target 'cityBike' do
   # Pods for cityBike
 	pod 'SwiftyJSON'
 	pod 'Alamofire', '~> 4.4'
+	pod 'Flurry-iOS-SDK/FlurrySDK' #Analytics Pod
 
 end

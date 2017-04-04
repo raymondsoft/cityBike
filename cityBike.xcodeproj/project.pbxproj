@@ -35,6 +35,9 @@
 		C8BFB29E1E892C2F003BCB39 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFB29D1E892C2F003BCB39 /* Station.swift */; };
 		C8BFB2A21E894213003BCB39 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFB2A11E894213003BCB39 /* CityViewController.swift */; };
 		C8BFB2A41E894635003BCB39 /* MapCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFB2A31E894635003BCB39 /* MapCityViewController.swift */; };
+		C8FFFAF01E8E547E0014C22C /* Double+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FFFAEF1E8E547E0014C22C /* Double+Formatter.swift */; };
+		C8FFFAF21E8EAFC70014C22C /* ContractProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FFFAF11E8EAFC70014C22C /* ContractProvider.swift */; };
+		C8FFFAF41E8EB0390014C22C /* ContractConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FFFAF31E8EB0390014C22C /* ContractConsumer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +71,9 @@
 		C8BFB29D1E892C2F003BCB39 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		C8BFB2A11E894213003BCB39 /* CityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
 		C8BFB2A31E894635003BCB39 /* MapCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCityViewController.swift; sourceTree = "<group>"; };
+		C8FFFAEF1E8E547E0014C22C /* Double+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Formatter.swift"; sourceTree = "<group>"; };
+		C8FFFAF11E8EAFC70014C22C /* ContractProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractProvider.swift; sourceTree = "<group>"; };
+		C8FFFAF31E8EB0390014C22C /* ContractConsumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractConsumer.swift; sourceTree = "<group>"; };
 		E6A9ADC3BA1BF7B87F2B84FD /* Pods-cityBike.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cityBike.release.xcconfig"; path = "Pods/Target Support Files/Pods-cityBike/Pods-cityBike.release.xcconfig"; sourceTree = "<group>"; };
 		FCAE2CA816474046785873D4 /* Pods_cityBike.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cityBike.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -98,6 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				C81BB33A1E8D55FA004EDDEA /* StationListProvider.swift */,
+				C8FFFAF11E8EAFC70014C22C /* ContractProvider.swift */,
+				C8FFFAF31E8EB0390014C22C /* ContractConsumer.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -173,6 +181,7 @@
 				C80D2AAD1E8962D000B1DAF4 /* utilities.swift */,
 				C80D2AB51E8AB4FB00B1DAF4 /* UIImage+colorize.swift */,
 				C81F99EA1E8BCBF1006DF46C /* PersistanceManager.swift */,
+				C8FFFAEF1E8E547E0014C22C /* Double+Formatter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -326,6 +335,8 @@
 			files = (
 				C80D2AA81E89483A00B1DAF4 /* CitiesSelectionViewController.swift in Sources */,
 				C80D2AAC1E89598200B1DAF4 /* StationAnnotation.swift in Sources */,
+				C8FFFAF21E8EAFC70014C22C /* ContractProvider.swift in Sources */,
+				C8FFFAF41E8EB0390014C22C /* ContractConsumer.swift in Sources */,
 				C8BFB2A41E894635003BCB39 /* MapCityViewController.swift in Sources */,
 				C81F99EB1E8BCBF1006DF46C /* PersistanceManager.swift in Sources */,
 				C80D2AB21E8A72DF00B1DAF4 /* DetailStationView.swift in Sources */,
@@ -344,6 +355,7 @@
 				C80D2AB61E8AB4FB00B1DAF4 /* UIImage+colorize.swift in Sources */,
 				C81F99E71E8BC558006DF46C /* StationAnnotationView.swift in Sources */,
 				C81BB33B1E8D55FA004EDDEA /* StationListProvider.swift in Sources */,
+				C8FFFAF01E8E547E0014C22C /* Double+Formatter.swift in Sources */,
 				C8BFB29E1E892C2F003BCB39 /* Station.swift in Sources */,
 				C8123F261E8D39FF002840BA /* FavoriteStationsViewController.swift in Sources */,
 			);

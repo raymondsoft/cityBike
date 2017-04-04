@@ -22,13 +22,13 @@ class PersistanceManager {
         return UserDefaults.standard.object(forKey: key) as? [Int]
     }
     
-    static func getFavoriteIds(for key: String)->[Int]? {
-         return UserDefaults.standard.object(forKey: key) as? [Int]
+    static func getFavoriteIds(for key: String, contract: String)->[Int]? {
+         return UserDefaults.standard.object(forKey: key + contract) as? [Int]
     }
     
     
-    static func saveStationsId(for key: String, with stationIds : [Int]) {
-        UserDefaults.standard.set(stationIds, forKey: key)
+    static func saveStationsId(for key: String, with stationIds : [Int], contract : String) {
+        UserDefaults.standard.set(stationIds, forKey: key + contract)
         UserDefaults.standard.synchronize()
         
         NSUbiquitousKeyValueStore.default().set(stationIds, forKey: key)

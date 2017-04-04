@@ -12,14 +12,16 @@ class StationTableViewCell: UITableViewCell {
 
     @IBOutlet weak var StationNameLabel: UILabel!
     
-    @IBOutlet weak var totalStandsLabel: UILabel!
-    
+   
     @IBOutlet weak var LocalisationLabel: UILabel!
     
+    @IBOutlet weak var BikeImage: UIImageView!
     @IBOutlet weak var bikesAvailable: UILabel!
     
+    @IBOutlet weak var standImage: UIImageView!
     @IBOutlet weak var standsAvailable: UILabel!
     
+    @IBOutlet weak var distanceToUserLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,10 +36,20 @@ class StationTableViewCell: UITableViewCell {
     
     func buildFrom(station: Station){
         self.StationNameLabel.text = station.name
-        self.totalStandsLabel.text = String(station.bikeStands)
+//        self.totalStandsLabel.text = String(station.bikeStands)
         self.LocalisationLabel.text = String(station.address)
+        
         self.bikesAvailable.text = String(station.availableBikes)
+        self.BikeImage.image = self.BikeImage.image?.maskWithColor(color: station.availableBikeColor)
+        
         self.standsAvailable.text = String(station.availableBikeStands)
+        self.standImage.image = self.standImage.image?.maskWithColor(color: station.availableStandColor)
+        
+        if station.distanceToUser != nil {
+            self.distanceToUserLabel.text = station.distanceToUser!.toString(with: 2) + " m"
+        } else {
+            self.distanceToUserLabel.text = "Position Utilisateur Inconnue"
+        }
     }
 
 }

@@ -53,10 +53,12 @@ class StationAnnotation : NSObject, MKAnnotation {
     
     
     private func setPinsColors() {
-        setAvailableBikePinColor()
-        setAvailableStandsPinColor()
+        self.pinAvailableBikesColor = self.station?.availableBikeColor
+        self.pinAvailableStandsColor = self.station?.availableStandColor
+//        setAvailableBikePinColor()
+//        setAvailableStandsPinColor()
     }
-    
+    /*
     private func setAvailableBikePinColor() {
         let percentage = Float(self.station!.availableBikes) / Float(self.station!.bikeStands)
         var red : Float = 1
@@ -108,7 +110,7 @@ class StationAnnotation : NSObject, MKAnnotation {
         self.pinAvailableStandsColor = UIColor(colorLiteralRed: red, green: green, blue: blue, alpha: alpha)
     }
     
-    
+    */
     
     
 
