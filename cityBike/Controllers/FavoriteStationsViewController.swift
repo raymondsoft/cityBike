@@ -27,8 +27,8 @@ class FavoriteStationsViewController: UIViewController , UITableViewDelegate, UI
     var userPosition : CLLocation?{
         didSet {
             print("USER LOCATION UPDATED")
-            print("\t oldValue: (\(oldValue?.coordinate.latitude) , \(oldValue?.coordinate.longitude))")
-            print("\t newValue: (\(userPosition?.coordinate.latitude) , \(userPosition?.coordinate.longitude))")
+            print("\t oldValue: (\(String(describing: oldValue?.coordinate.latitude)) , \(String(describing: oldValue?.coordinate.longitude)))")
+            print("\t newValue: (\(String(describing: userPosition?.coordinate.latitude)) , \(String(describing: userPosition?.coordinate.longitude)))")
             self.sortStationsByDistanceToUser()
         }
     }
@@ -208,7 +208,7 @@ class FavoriteStationsViewController: UIViewController , UITableViewDelegate, UI
     }
     
     func setCityContract(_ city: String?) {
-        print("Contract Consumer. City recieved : \(city)")
+        print("Contract Consumer. City recieved : \(String(describing: city))")
         self.city = city
     }
     

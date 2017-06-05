@@ -26,7 +26,7 @@ class ViewController: UIViewController {
 
         JCDecauxHelper.getStation(forContract: "Paris", stationNumber: 31705) {
             json in
-                let station = Station(json)
+                _ = Station(json)
             
         }
         

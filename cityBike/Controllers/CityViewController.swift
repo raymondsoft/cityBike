@@ -97,7 +97,7 @@ class CityViewController: UIViewController, StationListProvider, ContractConsume
     }
     
     func setCityContract(_ city: String?) {
-        print("Contract Consumer. City recieved : \(city)")
+        print("Contract Consumer. City recieved : \(String(describing: city))")
         self.city = city
     }
 }

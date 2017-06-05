@@ -13,7 +13,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate , U
     var pages = [UIViewController]()
     
     // I know this is the correct index !!!
-    var startPageViewControlerIndex = 0
+    var startPageViewControlerIndex = 1
     
     //var viewControllers: [UIViewController]?
     
@@ -123,7 +123,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate , U
     
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        return 0
+
+        return self.pages.index(of: pageViewController) ?? self.startPageViewControlerIndex
+//        return 0
     }
     
 }

@@ -20,7 +20,7 @@ class CitiesSelectionViewController: UIViewController , UIPickerViewDelegate, UI
     
     var city : String? {
         didSet {
-            print("City selected : \(city)")
+            print("City selected : \(String(describing: city))")
         }
     }
     
@@ -44,7 +44,7 @@ class CitiesSelectionViewController: UIViewController , UIPickerViewDelegate, UI
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("city : \(self.city)")
+        print("city : \(String(describing: self.city))")
     }
     
 
@@ -69,7 +69,7 @@ class CitiesSelectionViewController: UIViewController , UIPickerViewDelegate, UI
     // -MARK: PickerView DATA SOURCE
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        print("NB rows : \(self.contracts?.count)")
+        print("NB rows : \(String(describing: self.contracts?.count))")
         return self.contracts?.count ?? 0
     }
     
@@ -89,7 +89,7 @@ class CitiesSelectionViewController: UIViewController , UIPickerViewDelegate, UI
     }
     
     func selectedCity() -> String? {
-        print("Contract Provider. City sent : \(self.city)")
+        print("Contract Provider. City sent : \(String(describing: self.city))")
         return self.city
     }
 }
